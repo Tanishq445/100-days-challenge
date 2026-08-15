@@ -302,3 +302,62 @@ int main() {
 
 // sixth day program
 
+Q11: Write a program to input an integer and check whether it is even or odd using if–else.
+
+/*
+Sample Test Cases:
+Input 1:
+7
+Output 1:
+7 is odd
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (num % 2 == 0) {
+        printf("%d is Even.\n", num);
+    } else {
+        printf("%d is Odd.\n", num);
+    }
+
+    return 0;
+}
+
+Q12: Write a program to input an integer and check whether it is positive, negative or zero using nested if–else.
+
+/*
+Sample Test Cases:
+Input 1:
+-5
+Output 1:
+Negative
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (num >= 0) {
+        if (num == 0) {
+            printf("The number is Zero.\n");
+        } else {
+            printf("The number is Positive.\n");
+        }
+    } else {
+        printf("The number is Negative.\n");
+    }
+
+    return 0;
+}
+
+// seventh day program
