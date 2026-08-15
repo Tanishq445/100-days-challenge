@@ -1,5 +1,5 @@
 //First day program
-//First program
+
 Q1: Write a program to input two numbers and display their sum.
 
 /*
@@ -25,7 +25,6 @@ int main() {
     return 0;
 }
 
-// Second program
 
 Q2: Write a program to input two numbers and display their sum, difference, product, and quotient.
 
@@ -58,6 +57,91 @@ int main() {
 }
 
 //Second day program
+
+Q3: Write a program to calculate the area and perimeter of a rectangle given its length and breadth.
+
+/*
+Sample Test Cases:
+Input 1:
+5 10
+Output 1:
+Area=50, Perimeter=30
+*/
+
+#include <stdio.h>
+
+int main() {
+    float length, breadth, area, perimeter;
+
+    printf("Enter length: ");
+    scanf("%f", &length);
+
+    printf("Enter breadth: ");
+    scanf("%f", &breadth);
+
+    area = length * breadth;
+    perimeter = 2 * (length + breadth);
+
+    printf("Area of rectangle = %.2f\n", area);
+    printf("Perimeter of rectangle = %.2f\n", perimeter);
+
+    return 0;
+}
+
+Q4: Write a program to calculate the area and circumference of a circle given its radius.
+
+/*
+Sample Test Cases:
+Input 1:
+7
+Output 1:
+Area=153.94, Circumference=43.96
+*/
+
+#include <stdio.h>
+
+int main() {
+    float radius, area, circumference;
+    float pi = 3.14;
+
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+
+    area = pi * radius * radius;
+    circumference = 2 * pi * radius;
+
+    printf("Area of circle = %.2f\n", area);
+    printf("Circumference of circle = %.2f\n", circumference);
+
+    return 0;
+}
+
+// third day program
+
+Q5: Write a program to convert temperature from Celsius to Fahrenheit.
+
+/*
+Sample Test Cases:
+Input 1:
+0
+Output 1:
+Fahrenheit=32
+*/
+
+#include <stdio.h>
+
+int main() {
+    float celsius, fahrenheit;
+
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+
+    fahrenheit = (celsius * 9 / 5) + 32;
+
+    printf("Temperature in Fahrenheit = %.2f\n", fahrenheit);
+
+    return 0;
+}
 
 
 //second program
