@@ -152,6 +152,40 @@ Input 1:
 Output 1:
 After swap: 5 3
 */
+#include <stdio.h>
+
+int main() {
+    int a, b, temp;
+
+    printf("Enter first number: ");
+    scanf("%d", &a);
+
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    // Swapping using third variable
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("After swapping:\n");
+    printf("First number = %d\n", a);
+    printf("Second number = %d\n", b);
+
+    return 0;
+}
+
+//forth day program
+
+Q7: Write a program to swap two numbers without using a third variable.
+
+/*
+Sample Test Cases:
+Input 1:
+10 20
+Output 1:
+After swap: 20 10
+*/
 
 #include <stdio.h>
 
@@ -164,6 +198,7 @@ int main() {
     printf("Enter second number: ");
     scanf("%d", &b);
 
+    // Swapping without third variable
     a = a + b;
     b = a - b;
     a = a - b;
@@ -175,4 +210,28 @@ int main() {
     return 0;
 }
 
-//second program
+Q8: Write a program to find and display the sum of the first n natural numbers.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+Output 1:
+Sum=15
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, sum;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    sum = n * (n + 1) / 2;
+
+    printf("Sum of first %d natural numbers = %d\n", n, sum);
+
+    return 0;
+}
+
