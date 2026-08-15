@@ -143,5 +143,36 @@ int main() {
     return 0;
 }
 
+Q6: Write a program to swap two numbers using a third variable.
+
+/*
+Sample Test Cases:
+Input 1:
+3 5
+Output 1:
+After swap: 5 3
+*/
+
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter first number: ");
+    scanf("%d", &a);
+
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("After swapping:\n");
+    printf("First number = %d\n", a);
+    printf("Second number = %d\n", b);
+
+    return 0;
+}
 
 //second program
