@@ -931,3 +931,420 @@ int main() {
 
 // thirteen day program 
 
+Q25: Write a program to implement a basic calculator using switch-case for +, -, *, /, %.
+
+/*
+Sample Test Cases:
+Input 1:
+4 2 +
+Output 1:
+6
+
+Input 2:
+10 3 %
+Output 2:
+1
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2;
+    char op;
+
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter an operator (+, -, *, /, %%): ");
+    scanf(" %c", &op);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+
+    switch(op) {
+        case '+':
+            printf("Result = %d\n", num1 + num2);
+            break;
+
+        case '-':
+            printf("Result = %d\n", num1 - num2);
+            break;
+
+        case '*':
+            printf("Result = %d\n", num1 * num2);
+            break;
+
+        case '/':
+            if(num2 != 0)
+                printf("Result = %.2f\n", (float)num1 / num2);
+            else
+                printf("Error! Division by zero is not allowed.\n");
+            break;
+
+        case '%':
+            if(num2 != 0)
+                printf("Result = %d\n", num1 % num2);
+            else
+                printf("Error! Modulus by zero is not allowed.\n");
+            break;
+
+        default:
+            printf("Invalid operator!\n");
+    }
+
+    return 0;
+}
+
+Q26: Write a program to print numbers from 1 to n.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+Output 1:
+1 2 3 4 5
+
+Input 2:
+3
+Output 2:
+1 2 3
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Numbers from 1 to %d are:\n", n);
+
+    for(i = 1; i <= n; i++) {
+        printf("%d ", i);
+    }
+
+    return 0;
+}
+
+//fourteen day program
+
+Q27: Write a program to print the sum of the first n odd numbers.
+
+/*
+Sample Test Cases:
+Input 1:
+3
+Output 1:
+9
+
+Input 2:
+5
+Output 2:
+25
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i, sum = 0;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++) {
+        sum = sum + (2 * i - 1);
+    }
+
+    printf("Sum of the first %d odd numbers = %d\n", n, sum);
+
+    return 0;
+}
+
+Q28: Write a program to print the product of even numbers from 1 to n.
+
+/*
+Sample Test Cases:
+Input 1:
+4
+Output 1:
+8 (2 * 4)
+
+Input 2:
+6
+Output 2:
+48 (2 * 4 * 6)
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long long product = 1;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    for(i = 2; i <= n; i += 2) {
+        product = product * i;
+    }
+
+    printf("Product of even numbers from 1 to %d = %lld\n", n, product);
+
+    return 0;
+}
+
+// fifteen day program
+
+Q29: Write a program to calculate the factorial of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+Output 1:
+120
+
+Input 2:
+3
+Output 2:
+6
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long long factorial = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n < 0) {
+        printf("Factorial of a negative number does not exist.\n");
+    } else {
+        for(i = 1; i <= n; i++) {
+            factorial = factorial * i;
+        }
+
+        printf("Factorial of %d = %lld\n", n, factorial);
+    }
+
+    return 0;
+}
+
+Q30: Write a program to reverse a given number.
+
+/*
+Sample Test Cases:
+Input 1:
+1234
+Output 1:
+4321
+
+Input 2:
+100
+Output 2:
+1
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, reverse = 0, remainder;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    while(num != 0) {
+        remainder = num % 10;
+        reverse = reverse * 10 + remainder;
+        num = num / 10;
+    }
+
+    printf("Reversed number = %d\n", reverse);
+
+    return 0;
+}
+
+//sixteen day program
+
+Q31:Write a program to take a number as input and print its equivalent binary representation.
+
+/*
+Sample Test Cases:
+Input 1:
+10
+Output 1:
+1010
+
+Input 2:
+7
+Output 2:
+111
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, binary[32], i = 0;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+
+    if (num == 0) {
+        printf("Binary representation = 0\n");
+        return 0;
+    }
+
+    while (num > 0) {
+        binary[i] = num % 2;
+        num = num / 2;
+        i++;
+    }
+
+    printf("Binary representation = ");
+
+    for (i = i - 1; i >= 0; i--) {
+        printf("%d", binary[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+Q32: Write a program to check if a number is a palindrome.
+
+/*
+Sample Test Cases:
+Input 1:
+121
+Output 1:
+Palindrome
+
+Input 2:
+123
+Output 2:
+Not palindrome
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, originalNum, remainder, reverse = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        reverse = reverse * 10 + remainder;
+        num = num / 10;
+    }
+
+    if (originalNum == reverse)
+        printf("%d is a Palindrome number.\n", originalNum);
+    else
+        printf("%d is not a Palindrome number.\n", originalNum);
+
+    return 0;
+}
+
+//seventeen day program
+
+Q33: Write a program to check if a number is an Armstrong number.
+
+/*
+Sample Test Cases:
+Input 1:
+153
+Output 1:
+Armstrong
+
+Input 2:
+123
+Output 2:
+Not Armstrong
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, originalNum, remainder, digits = 0;
+    int sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    // Count the number of digits
+    while (originalNum != 0) {
+        digits++;
+        originalNum /= 10;
+    }
+
+    originalNum = num;
+
+    // Calculate the sum of each digit raised to the power of digits
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        sum += (int)pow(remainder, digits);
+        originalNum /= 10;
+    }
+
+    if (sum == num)
+        printf("%d is an Armstrong number.\n", num);
+    else
+        printf("%d is not an Armstrong number.\n", num);
+
+    return 0;
+}
+
+Q34: Write a program to check if a number is prime.
+
+/*
+Sample Test Cases:
+Input 1:
+7
+Output 1:
+Prime
+
+Input 2:
+10
+Output 2:
+Not prime
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, i, isPrime = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num <= 1) {
+        isPrime = 0;
+    } else {
+        for (i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if (isPrime)
+        printf("%d is a Prime number.\n", num);
+    else
+        printf("%d is not a Prime number.\n", num);
+
+    return 0;
+}
+
+//eighteen day program
