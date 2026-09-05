@@ -1348,3 +1348,570 @@ int main() {
 }
 
 //eighteen day program
+
+Q35: Write a program to print all factors of a given number.
+
+/*
+Sample Test Cases:
+Input 1:
+6
+Output 1:
+1 2 3 6
+
+Input 2:
+10
+Output 2:
+1 2 5 10
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Factors of %d are: ", n);
+
+    for (i = 1; i <= n; i++) {
+        if (n % i == 0) {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
+
+Q36: Write a program to find the HCF (GCD) of two numbers.
+
+/*
+Sample Test Cases:
+Input 1:
+12 18
+Output 1:
+6
+
+Input 2:
+7 9
+Output 2:
+1
+*/
+
+#include <stdio.h>
+
+int main() {
+    int a, b, i, hcf;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    for (i = 1; i <= a && i <= b; i++) {
+        if (a % i == 0 && b % i == 0) {
+            hcf = i;
+        }
+    }
+
+    printf("HCF (GCD) of %d and %d is %d\n", a, b, hcf);
+
+    return 0;
+}
+
+//nineteen day program
+
+Q37: Write a program to find the LCM of two numbers.
+
+/*
+Sample Test Cases:
+Input 1:
+4 5
+Output 1:
+20
+
+Input 2:
+7 3
+Output 2:
+21
+*/
+
+#include <stdio.h>
+
+int main() {
+    int a, b, max;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    max = (a > b) ? a : b;
+
+    while (1) {
+        if (max % a == 0 && max % b == 0) {
+            printf("LCM of %d and %d is %d\n", a, b, max);
+            break;
+        }
+        max++;
+    }
+
+    return 0;
+}
+
+Q38: Write a program to find the sum of digits of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+123
+Output 1:
+6
+
+Input 2:
+999
+Output 2:
+27
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, digit, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    while (n != 0) {
+        digit = n % 10;
+        sum = sum + digit;
+        n = n / 10;
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
+
+//twenty day program
+
+Q39: Write a program to find the product of odd digits of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+12345
+Output 1:
+15 (1*3*5)
+
+Input 2:
+2468
+Output 2:
+1 (no odd digits, assume 1)
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, digit, product = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    while (n != 0) {
+        digit = n % 10;
+
+        if (digit % 2 != 0) {
+            product = product * digit;
+        }
+
+        n = n / 10;
+    }
+
+    printf("Product of odd digits = %d\n", product);
+
+    return 0;
+}
+
+
+Q40: Write a program to find the 1’s complement of a binary number and print it.
+
+/*
+Sample Test Cases:
+Input 1:
+1010
+Output 1:
+0101
+
+Input 2:
+1111
+Output 2:
+0000
+*/
+
+#include <stdio.h>
+
+int main() {
+    char binary[100];
+    int i;
+
+    printf("Enter a binary number: ");
+    scanf("%99s", binary);
+
+    printf("1's complement = ");
+
+    for (i = 0; binary[i] != '\0'; i++) {
+        if (binary[i] == '0')
+            printf("1");
+        else if (binary[i] == '1')
+            printf("0");
+        else {
+            printf("\nInvalid binary number!\n");
+            return 1;
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+//twenty_one day program
+
+Q41: Write a program to swap the first and last digit of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+1234
+Output 1:
+4231
+
+Input 2:
+1001
+Output 2:
+1001
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, first, last, temp, divisor = 1, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+    last = num % 10;
+
+    while (temp >= 10) {
+        temp = temp / 10;
+        divisor = divisor * 10;
+    }
+
+    first = temp;
+
+    result = last * divisor
+           + (num % divisor - last)
+           + first;
+
+    printf("Number after swapping first and last digit = %d\n", result);
+
+    return 0;
+}
+
+
+Q42: Write a program to check if a number is a perfect number.
+
+/*
+Sample Test Cases:
+Input 1:
+6
+Output 1:
+Perfect number
+
+Input 2:
+10
+Output 2:
+Not perfect number
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, first, last, temp, divisor = 1, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+    last = num % 10;
+
+    while (temp >= 10) {
+        temp = temp / 10;
+        divisor = divisor * 10;
+    }
+
+    first = temp;
+
+    result = last * divisor
+           + (num % divisor - last)
+           + first;
+
+    printf("Number after swapping first and last digit = %d\n", result);
+
+    return 0;
+}
+
+//twenty_two day program
+
+Q43: Write a program to check if a number is a strong number.
+
+/*
+Sample Test Cases:
+Input 1:
+145
+Output 1:
+Strong number
+
+Input 2:
+123
+Output 2:
+Not strong number
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num, temp, digit, i;
+    int sum = 0, fact;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+
+    while (temp != 0) {
+        digit = temp % 10;
+        fact = 1;
+
+        for (i = 1; i <= digit; i++) {
+            fact = fact * i;
+        }
+
+        sum = sum + fact;
+        temp = temp / 10;
+    }
+
+    if (sum == num)
+        printf("%d is a Strong Number.\n", num);
+    else
+        printf("%d is not a Strong Number.\n", num);
+
+    return 0;
+}
+
+Q44: Write a program to find the sum of the series: 1 + 3/4 + 5/6 + 7/8 + … up to n terms.
+
+/*
+Sample Test Cases:
+Input 1:
+3
+Output 1:
+Approximate sum: 3.3
+
+Input 2:
+5
+Output 2:
+Approximate sum: 4.4
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    double sum = 1.0;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    for (i = 2; i <= n; i++) {
+        sum = sum + (double)(2 * i - 1) / (2 * i);
+    }
+
+    printf("Sum of the series = %.4lf\n", sum);
+
+    return 0;
+}
+
+//twenty_three day program
+
+Q45: Write a program to find the sum of the series: 2/3 + 4/7 + 6/11 + 8/15 + ... up to n terms.
+
+/*
+Sample Test Cases:
+Input 1:
+3
+Output 1:
+Approximate sum: 1.56
+
+Input 2:
+5
+Output 2:
+Approximate sum: 2.22
+*/
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    double sum = 0.0;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        sum = sum + (double)(2 * i) / (4 * i - 1);
+    }
+
+    printf("Sum of the series = %.4lf\n", sum);
+
+    return 0;
+}
+
+Q46: Write a program to print the following pattern:
+*****
+*****
+*****
+*****
+*****
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+*****
+*****
+*****
+*****
+*****
+*/
+
+#include <stdio.h>
+
+int main() {
+    int i, j;
+
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= 5; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//twenty_four day program
+
+Q47: Write a program to print the following pattern:
+*
+**
+***
+****
+*****
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+*
+**
+***
+****
+*****
+*/
+
+#include <stdio.h>
+
+int main() {
+    int i, j;
+
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+Q48: Write a program to print the following pattern:
+1
+12
+123
+1234
+12345
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+1
+12
+123
+1234
+12345
+*/
+
+#include <stdio.h>
+
+int main() {
+    int i, j;
+
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//twenty_five day program
+
+Q49: Write a program to print the following pattern:
+5
+45
+345
+2345
+12345
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+5
+45
+345
+2345
+12345
+*/
+
+#include <stdio.h>
+
+int main() {
+    int i, j;
+
+    for (i = 5; i >= 1; i--) {
+        for (j = i; j <= 5; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
