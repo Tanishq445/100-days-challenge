@@ -2175,3 +2175,399 @@ int main()
 
 //twenty_eight day program
 
+Q55: Write a program to print all the prime numbers from 1 to n.
+
+/*
+Sample Test Cases:
+Input 1:
+10
+Output 1:
+2 3 5 7
+
+Input 2:
+20
+Output 2:
+2 3 5 7 11 13 17 19
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i, j, isPrime;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Prime numbers from 1 to %d are:\n", n);
+
+    for (i = 2; i <= n; i++)
+    {
+        isPrime = 1;
+
+        for (j = 2; j < i; j++)
+        {
+            if (i % j == 0)
+            {
+                isPrime = 0;
+                break;
+            }
+        }
+
+        if (isPrime == 1)
+        {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}
+
+Q56: Read and print elements of a one-dimensional array.
+
+/*
+Sample Test Cases:
+Input 1:
+3
+10 20 30
+Output 1:
+10 20 30
+
+Input 2:
+5
+1 2 3 4 5
+Output 2:
+1 2 3 4 5
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("The elements of the array are:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+//twenty_nine day program
+
+Q57: Find the sum of array elements.
+
+/*
+Sample Test Cases:
+Input 1:
+4
+2 4 6 8
+Output 1:
+20
+
+Input 2:
+3
+1 1 1
+Output 2:
+3
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, sum = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+        sum = sum + arr[i];
+    }
+
+    printf("Sum of array elements = %d\n", sum);
+
+    return 0;
+}
+
+Q58: Find the maximum and minimum element in an array.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+2 9 1 4 7
+Output 1:
+Max=9, Min=1
+
+Input 2:
+3
+10 10 10
+Output 2:
+Max=10, Min=10
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, max, min;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    max = arr[0];
+    min = arr[0];
+
+    for (i = 1; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+
+        if (arr[i] < min)
+        {
+            min = arr[i];
+        }
+    }
+
+    printf("Maximum element = %d\n", max);
+    printf("Minimum element = %d\n", min);
+
+    return 0;
+}
+
+//thirty day program
+
+Q59: Count even and odd numbers in an array.
+
+/*
+Sample Test Cases:
+Input 1:
+6
+1 2 3 4 5 6
+Output 1:
+Even=3, Odd=3
+
+Input 2:
+4
+2 4 6 8
+Output 2:
+Even=4, Odd=0
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int even = 0, odd = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            even++;
+        }
+        else
+        {
+            odd++;
+        }
+    }
+
+    printf("Number of even elements = %d\n", even);
+    printf("Number of odd elements = %d\n", odd);
+
+    return 0;
+}
+
+Q60: Count positive, negative, and zero elements in an array.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+-1 0 1 2 -2
+Output 1:
+Positive=2, Negative=2, Zero=1
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int positive = 0, negative = 0, zero = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] > 0)
+        {
+            positive++;
+        }
+        else if (arr[i] < 0)
+        {
+            negative++;
+        }
+        else
+        {
+            zero++;
+        }
+    }
+
+    printf("Number of positive elements = %d\n", positive);
+    printf("Number of negative elements = %d\n", negative);
+    printf("Number of zero elements = %d\n", zero);
+
+    return 0;
+}
+
+//thirty_one day program
+
+Q61: Search for an element in an array using linear search.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+1 2 3 4 5
+3
+Output 1:
+Found at index 2
+
+Input 2:
+4
+10 20 30 40
+25
+Output 2:
+-1
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, key, found = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the element to search: ");
+    scanf("%d", &key);
+
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] == key)
+        {
+            printf("Element found at position %d\n", i + 1);
+            found = 1;
+            break;
+        }
+    }
+
+    if (found == 0)
+    {
+        printf("Element not found in the array.\n");
+    }
+
+    return 0;
+}
+
+Q62: Reverse an array without taking extra space.
+
+/*
+Sample Test Cases:
+Input 1:
+4
+1 2 3 4
+Output 1:
+4 3 2 1
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, temp;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    // Reverse the array in-place
+    for (i = 0; i < n / 2; i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+
+    printf("Reversed array:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+//thirty_two day program
