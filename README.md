@@ -2571,3 +2571,257 @@ int main()
 }
 
 //thirty_two day program
+
+Q63: Merge two arrays.
+
+/*
+Sample Test Cases:
+Input 1:
+3
+1 2 3
+2
+4 5
+Output 1:
+1 2 3 4 5
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], b[100], c[200];
+    int n1, n2, i;
+
+    printf("Enter the number of elements in first array: ");
+    scanf("%d", &n1);
+
+    printf("Enter elements of first array:\n");
+    for (i = 0; i < n1; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter the number of elements in second array: ");
+    scanf("%d", &n2);
+
+    printf("Enter elements of second array:\n");
+    for (i = 0; i < n2; i++)
+    {
+        scanf("%d", &b[i]);
+    }
+
+    // Copy first array into merged array
+    for (i = 0; i < n1; i++)
+    {
+        c[i] = a[i];
+    }
+
+    // Copy second array into merged array
+    for (i = 0; i < n2; i++)
+    {
+        c[n1 + i] = b[i];
+    }
+
+    printf("Merged array:\n");
+    for (i = 0; i < n1 + n2; i++)
+    {
+        printf("%d ", c[i]);
+    }
+
+    return 0;
+}
+
+Q64: Find the digit that occurs the most times in an integer number.
+
+/*
+Sample Test Cases:
+Input 1:
+112233
+Output 1:
+1
+
+Input 2:
+887799
+Output 2:
+7
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    long long n;
+    int count[10] = {0};
+    int digit, i, max = 0, mostDigit = 0;
+
+    printf("Enter an integer number: ");
+    scanf("%lld", &n);
+
+    // Make negative number positive
+    if (n < 0)
+        n = -n;
+
+    // Special case for 0
+    if (n == 0)
+        count[0] = 1;
+
+    // Count frequency of each digit
+    while (n > 0)
+    {
+        digit = n % 10;
+        count[digit]++;
+        n = n / 10;
+    }
+
+    // Find the digit with maximum frequency
+    for (i = 0; i < 10; i++)
+    {
+        if (count[i] > max)
+        {
+            max = count[i];
+            mostDigit = i;
+        }
+    }
+
+    printf("Digit occurring most times = %d\n", mostDigit);
+    printf("Number of occurrences = %d\n", max);
+
+    return 0;
+}
+
+//thirty_three day program
+
+Q65: Search in a sorted array using binary search.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+1 3 5 7 9
+7
+Output 1:
+Found at index 3
+
+Input 2:
+5
+1 3 5 7 9
+6
+Output 2:
+-1
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, key;
+    int low, high, mid, found = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements in sorted order:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the element to search: ");
+    scanf("%d", &key);
+
+    low = 0;
+    high = n - 1;
+
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+
+        if (arr[mid] == key)
+        {
+            printf("Element found at position %d\n", mid + 1);
+            found = 1;
+            break;
+        }
+        else if (arr[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    if (found == 0)
+    {
+        printf("Element not found in the array.\n");
+    }
+
+    return 0;
+}
+
+Q66: Insert an element in a sorted array at the appropriate position.
+
+/*
+Sample Test Cases:
+Input 1:
+5
+1 2 4 5 6
+3
+Output 1:
+1 2 3 4 5 6
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, element, pos;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements in sorted order:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the element to insert: ");
+    scanf("%d", &element);
+
+    // Find appropriate position
+    pos = n;
+
+    for (i = 0; i < n; i++)
+    {
+        if (element < arr[i])
+        {
+            pos = i;
+            break;
+        }
+    }
+
+    // Shift elements to the right
+    for (i = n; i > pos; i--)
+    {
+        arr[i] = arr[i - 1];
+    }
+
+    // Insert the element
+    arr[pos] = element;
+    n++;
+
+    printf("Array after insertion:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+//thirty_four day program
