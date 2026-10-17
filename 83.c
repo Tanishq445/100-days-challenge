@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main()
+{
+    char str[100];
+    int i = 0, vowels = 0, consonants = 0;
+
+    // Read string
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0' && str[i] != '\n')
+    {
+        // Check if character is an alphabet
+        if ((str[i] >= 'A' && str[i] <= 'Z') ||
+            (str[i] >= 'a' && str[i] <= 'z'))
+        {
+            // Check for vowel
+            if (str[i] == 'a' || str[i] == 'e' ||
+                str[i] == 'i' || str[i] == 'o' ||
+                str[i] == 'u' || str[i] == 'A' ||
+                str[i] == 'E' || str[i] == 'I' ||
+                str[i] == 'O' || str[i] == 'U')
+            {
+                vowels++;
+            }
+            else
+            {
+                consonants++;
+            }
+        }
+
+        i++;
+    }
+
+    printf("Vowels=%d, Consonants=%d", vowels, consonants);
+
+    return 0;
+}
